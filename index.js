@@ -50,18 +50,28 @@ async function run() {
         }
     });
 
+
+    app.post("/movies", async (req, res) => {
+        try {
+            const movie = req.body;
+            const result = await moviesCollection.insertOne(movie);
+            res.send(result)
+        } catch (error) {
+            res.status(500).json({ message: "Internal Server Error", error: error.message });
+        }
+    });
+
+    
+
     app.listen(PORT, () => {
         console.log(`Server is running on http://localhost:${PORT}`);
     });
 
     try {
-        await client.connect();
-        // await client.db("admin").command({ ping: 1 });
-        // console.log(
-        //   "Pinged your deployment. You successfully connected to MongoDB!"
-        // );
+      //  await client.connect();
+       
     } finally {
-        //await client.close();
+        
     }
 }
 run().catch(console.dir);
