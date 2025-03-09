@@ -36,7 +36,7 @@ async function run() {
     // get
     app.get("/movies", async (req, res) => {
         try {
-            const movies = await moviesCollection.find().toArray();
+            const movies = await moviesCollection.find().sort({ rating: -1 }).toArray();
             res.json(movies);
         } catch (error) {
             res.status(500).json({ message: "Error fetching movies", error });
