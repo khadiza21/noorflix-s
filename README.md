@@ -1,3 +1,4 @@
 # Noorflix - Server
-# Server side live linK: https://noorflix-s.vercel.app/movies
+# Server side live link: https://noorflix-s.vercel.app/movies
+# Client side live link: https://noorflix.netlify.app/
 
